@@ -3,8 +3,13 @@ pipeline {
   stages {
     stage('Echoing Messages') {
       steps {
-        echo 'hello'
-        echo 'hello from the trigger'
+        sh 'echo "Hello Ankit Sambhare here!!!!" > result.txt'
+      }
+    }
+
+    stage('Post') {
+      steps {
+        archiveArtifacts 'result.txt'
       }
     }
 
