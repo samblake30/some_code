@@ -1,14 +1,15 @@
 pipeline {
   agent any
-  triggers {
-   cron('H/15 * * * *')
-  }
   stages {
-    stage('echo') {
+    stage('Echoing Messages') {
       steps {
+        echo 'hello'
         echo 'hello from the trigger'
       }
     }
 
+  }
+  triggers {
+    cron('H/15 * * * *')
   }
 }
